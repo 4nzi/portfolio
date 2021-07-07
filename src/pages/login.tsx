@@ -1,12 +1,7 @@
 import styled from 'styled-components'
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
-import Cookie from 'universal-cookie'
 import { Input, Label, Button } from '../components/index'
-
-import { useMutateAuth } from '../hooks/useMutateAuth'
-import { useValidate } from '../hooks/useValidate'
+import { useAuth } from '../hooks/useAuth'
 
 /* --------------------- Style --------------------- */
 const Contaier = styled.div`
@@ -47,33 +42,13 @@ const Wrapper = styled.form`
 /* ------------------------------------------------- */
 
 const Login: React.VFC = () => {
-  const router = useRouter()
-  const cookie = new Cookie()
-  const { loginMutation } = useMutateAuth()
-  const { required } = useValidate()
-
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-
-  useEffect(() => {
-    console.log('maunted')
-    if (cookie.get('access_token')) {
-      router.push('/admin')
-    }
-  }, [])
-
-  const submitHandler = async (e: React.MouseEvent<HTMLInputElement>) => {
-    e.preventDefault()
-    const isBlank = required(username, password)
-    if (isBlank) {
-      alert('必須入力欄が空白です。')
-      return false
-    } else {
-      loginMutation.mutate({ username: username, password: password })
-      setUsername('')
-      setPassword('')
-    }
-  }
+  const {
+    username,
+    password,
+    userChangeHandler,
+    passChangeHandler,
+    submitHandler,
+  } = useAuth()
 
   return (
     <Contaier>
@@ -85,9 +60,7 @@ const Login: React.VFC = () => {
             type="text"
             placeholder="Name"
             value={username}
-            onChange={(e) => {
-              setUsername(e.target.value)
-            }}
+            onChange={userChangeHandler}
           />
         </div>
         <div className="password">
@@ -96,9 +69,7 @@ const Login: React.VFC = () => {
             type="password"
             placeholder="Password"
             value={password}
-            onChange={(e) => {
-              setPassword(e.target.value)
-            }}
+            onChange={passChangeHandler}
           />
         </div>
         <div className="submit">
