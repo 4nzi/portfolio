@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 import { Input, Label, Button } from '../components/index'
-import { useAuth } from '../hooks/useAuth'
+import { useLogin } from '../hooks/useLogin'
 
 /* --------------------- Style --------------------- */
 const Contaier = styled.div`
@@ -48,7 +48,7 @@ const Login: React.VFC = () => {
     userChangeHandler,
     passChangeHandler,
     submitHandler,
-  } = useAuth()
+  } = useLogin()
 
   return (
     <Contaier>

@@ -1,24 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useMutation } from 'react-query'
 import { useRouter } from 'next/router'
 import Cookie from 'universal-cookie'
 import axios from 'axios'
 import { useValidate } from './useValidate'
 
-export const useAuth = () => {
+export const useLogin = () => {
   const router = useRouter()
   const cookie = new Cookie()
   const { required } = useValidate()
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-
-  useEffect(() => {
-    console.log('maunted')
-    if (cookie.get('access_token')) {
-      router.push('/admin')
-    }
-  }, [])
 
   const userChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value)
