@@ -1,12 +1,13 @@
 import { Spacer } from '../components/index'
 import { NewPost, Layout, PostTable } from '../templates/Admin/index'
+import Loading from '../components/Loding'
 
 import { useAuthChecker } from '../hooks/useAuthChecker'
 
 const Admin: React.VFC = () => {
   const { isLoading } = useAuthChecker()
 
-  if (isLoading === true) return <>Loding</>
+  if (isLoading === true) return <Loading isShow={true} />
   return (
     <Layout title="admin">
       <div className="container" style={{ maxWidth: '1400px' }}>
