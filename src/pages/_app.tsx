@@ -2,6 +2,7 @@ import { AppProps } from 'next/app'
 import GlobalStyle from '../components/GlobalStyle'
 import { Provider } from 'jotai'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { Hydrate } from 'react-query/hydration'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -14,12 +15,14 @@ const queryClient = new QueryClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider>
-      <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-        <GlobalStyle />
-      </QueryClientProvider>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedPosts}>
+        <Provider>
+          <Component {...pageProps} />
+          <GlobalStyle />
+        </Provider>
+      </Hydrate>
+    </QueryClientProvider>
   )
 }
 export default MyApp

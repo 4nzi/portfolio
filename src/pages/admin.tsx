@@ -1,7 +1,5 @@
-import { Spacer } from '../components/index'
+import { Spacer, Loading } from '../components/index'
 import { NewPost, Layout, PostTable } from '../templates/Admin/index'
-import Loading from '../components/Loding'
-
 import { useAuthChecker } from '../hooks/useAuthChecker'
 
 const Admin: React.VFC = () => {

@@ -3,17 +3,21 @@ import { Layout, About, Hello, PostList } from '../templates/index'
 import { Section, Spacer } from '../components/index'
 import { POST } from '../types/Types'
 
-import { getAllPostsData } from '../lib/fetch'
+import { QueryClient, useQueryClient } from 'react-query'
+import { dehydrate } from 'react-query/hydration'
+import { getPosts } from '../hooks/useQueryPosts'
 
 interface STATICPROPS {
   posts: POST[]
 }
 
-const Home: React.VFC<STATICPROPS> = ({ posts }) => {
+const Home: React.VFC<STATICPROPS> = () => {
+  const queryClient = useQueryClient()
+  const data = queryClient.getQueryData<POST[]>('posts')
   return (
     <Layout title="Home">
       <div className="container">
-        <PostList posts={posts} />
+        <PostList posts={data} />
         <Spacer axis="vertical" size={90} />
         <Section title="About" margin={true} />
         <About />
@@ -26,11 +30,13 @@ const Home: React.VFC<STATICPROPS> = ({ posts }) => {
 }
 export default Home
 
-/* pre-fetched */
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllPostsData()
+  const queryClient = new QueryClient()
+  await queryClient.prefetchQuery('posts', getPosts)
   return {
-    props: { posts },
-    revalidate: 10, //ISR
+    props: {
+      dehydratedPosts: dehydrate(queryClient),
+    },
+    revalidate: 10,
   }
 }

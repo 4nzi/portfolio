@@ -5,7 +5,8 @@ import { Section, LinkButton } from '../../components/index'
 import { POST } from '../../types/Types'
 import { GetStaticProps, GetStaticPaths } from 'next' //type
 
-import { getAllPostIds, getPostData } from '../../lib/fetch'
+import { getPostIds, getPost } from '../../hooks/useQueryPosts'
+import { QueryClient, useQueryClient } from 'react-query'
 
 /* --------------------- Style --------------------- */
 const Wrapper = styled.ul`
@@ -50,9 +51,8 @@ const PostDetail: React.VFC<POST> = ({ title, images }) => {
 }
 export default PostDetail
 
-/* pre-fetched */
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getAllPostIds()
+  const paths = await getPostIds()
   return {
     paths,
     fallback: true,
@@ -60,7 +60,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const post = await getPostData(ctx.params.id as string)
+  const post = await getPost(ctx.params.id as string)
   return {
     props: { ...post },
     revalidate: 10, //ISR

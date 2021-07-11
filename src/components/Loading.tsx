@@ -1,3 +1,4 @@
+import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
 
 const Load = keyframes`
@@ -81,7 +82,7 @@ const Wrapper = styled.div`
   }
 `
 
-export default function Loading({ isShow }: { isShow: boolean }) {
+const Loading = ({ isShow }: { isShow: boolean }) => {
   return (
     <Wrapper data-is-show={String(isShow)}>
       <ul className="circle">
@@ -94,3 +95,4 @@ export default function Loading({ isShow }: { isShow: boolean }) {
     </Wrapper>
   )
 }
+export default Loading
