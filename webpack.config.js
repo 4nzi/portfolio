@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+    mode: "production",
     entry: [path.resolve(__dirname, "./src/index.tsx")],
     output: {
         filename: "bundle.js",
@@ -14,6 +15,12 @@ module.exports = {
                 test: /\.(js|ts|tsx)?$/,
                 use: ["ts-loader"],
                 exclude: /node_modules/
+            },
+            {
+                // 対象となるファイルの拡張子
+                test: /\.(gif|png|jpg)$/,
+                // 画像をBase64として取り込む
+                type: "asset/inline",
             }
         ]
     },

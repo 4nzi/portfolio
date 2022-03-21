@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Tool } from '../components/index'
+import { c4d, bl, zb, sp, rs, or, ue, ae, ps } from '../images/tools/index'
 
 /* --------------------- Style --------------------- */
 const Wapper = styled.div`
@@ -39,15 +40,15 @@ const About: React.VFC = () => {
       </p>
       <h4>Tools:</h4>
       <div>
-        <Tool name="Cinema 4D" src="/tools/c4d.png" />
-        <Tool name="Blender" src="/tools/bl.png" />
-        <Tool name="ZBrush" src="/tools/zb.png" />
-        <Tool name="Substance Painter" src="/tools/sp.png" />
-        <Tool name="Redshift Render" src="/tools/rs.png" />
-        <Tool name="Octane Render" src="/tools/or.png" />
-        <Tool name="Unreal Engine" src="/tools/ue.png" />
-        <Tool name="After Effects" src="/tools/ae.png" />
-        <Tool name="Photoshop" src="/tools/ps.png" />
+        <Tool name="Cinema 4D" src={c4d} />
+        <Tool name="Blender" src={bl} />
+        <Tool name="ZBrush" src={zb} />
+        <Tool name="Substance Painter" src={sp} />
+        <Tool name="Redshift Render" src={rs} />
+        <Tool name="Octane Render" src={or} />
+        <Tool name="Unreal Engine" src={ue} />
+        <Tool name="After Effects" src={ae} />
+        <Tool name="Photoshop" src={ps} />
       </div>
     </Wapper>
   )
