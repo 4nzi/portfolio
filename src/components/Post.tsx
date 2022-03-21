@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { POST } from '../types'
+import { POST } from '../types/types'
+import tba from '../images/dummy.jpg'
 
 /* --------------------- Style --------------------- */
 const Wapper = styled.div`
@@ -41,7 +42,7 @@ const Post: React.VFC<POST> = ({ id, thum, title }) => {
   return (
     <a href={`/posts/${id}`}>
       <Wapper>
-        <Image src={thum} />
+        {thum ? <Image src={thum} /> : <Image src={tba} />}
         <MaskText>{title}</MaskText>
       </Wapper>
     </a>

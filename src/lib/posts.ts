@@ -1,14 +1,14 @@
-import { POST } from '../types'
+import { POST } from '../types/types'
 
 export const posts: POST[] = [
   {
     id: 1,
-    title: 'dummy_01',
+    title: 'nodoka',
     description: '',
-    thum: '/media/dummy.jpg',
+    thum: './images/posts/nodoka_thum.png',
     images: [
       {
-        file: '/media/dummy.jpg',
+        file: '',
         caption: '',
       },
     ],
@@ -16,12 +16,12 @@ export const posts: POST[] = [
   },
   {
     id: 2,
-    title: 'dummy_02',
+    title: 'sena',
     description: '',
-    thum: './media/dummy.jpg',
+    thum: './images/posts/sena_thum.jpg',
     images: [
       {
-        file: './media/dummy.jpg',
+        file: '',
         caption: '',
       },
     ],
@@ -29,12 +29,12 @@ export const posts: POST[] = [
   },
   {
     id: 3,
-    title: 'dummy_03',
+    title: 'TBA',
     description: '',
-    thum: './media/dummy.jpg',
+    thum: '',
     images: [
       {
-        file: './media/dummy.jpg',
+        file: '',
         caption: '',
       },
     ],
@@ -42,64 +42,64 @@ export const posts: POST[] = [
   },
   {
     id: 4,
-    title: 'dummy_04',
+    title: 'TBA',
     description: '',
-    thum: './media/dummy.jpg',
+    thum: '',
     images: [
       {
-        file: './media/dummy.jpg',
+        file: '',
         caption: '',
       },
     ],
     created_on: '',
   },
   {
-    id: 4,
-    title: 'dummy_04',
+    id: 5,
+    title: 'TBA',
     description: '',
-    thum: './media/dummy.jpg',
+    thum: '',
     images: [
       {
-        file: './media/dummy.jpg',
+        file: '',
         caption: '',
       },
     ],
     created_on: '',
   },
   {
-    id: 4,
-    title: 'dummy_04',
+    id: 6,
+    title: 'TBA',
     description: '',
-    thum: './media/dummy.jpg',
+    thum: '',
     images: [
       {
-        file: './media/dummy.jpg',
+        file: '',
         caption: '',
       },
     ],
     created_on: '',
   },
   {
-    id: 4,
-    title: 'dummy_04',
+    id: 7,
+    title: 'TBA',
     description: '',
-    thum: './media/dummy.jpg',
+    thum: '',
     images: [
       {
-        file: './media/dummy.jpg',
+        file: '',
         caption: '',
       },
     ],
     created_on: '',
   },
   {
-    id: 4,
-    title: 'dummy_04',
+    id: 8,
+    title: 'TBA',
     description: '',
-    thum: './media/dummy.jpg',
+    thum: '',
     images: [
       {
-        file: './media/dummy.jpg',
+        file: '',
         caption: '',
       },
     ],
