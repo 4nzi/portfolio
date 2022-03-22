@@ -1,9 +1,11 @@
 import * as functions from 'firebase-functions'
 import * as express from 'express'
+import * as cors from 'cors'
 import send from './mailer'
 import { IRequest } from './types'
 
-export const app = express()
+const app = express()
+app.use(cors())
 app.use(express.json())
 
 app.post('/', (req, res) => {
