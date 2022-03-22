@@ -9,3 +9,9 @@ export interface POST {
   }>
   created_on: string
 }
+
+export interface FORM_DATA {
+  name: string
+  mail: string
+  message: string
+}
