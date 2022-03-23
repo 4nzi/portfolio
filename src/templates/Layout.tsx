@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { LinkButton, Spacer } from '../components/index'
+import { ScroolButton, Spacer, Button } from '../components/index'
 
 /* --------------------- Style --------------------- */
 const Wrapper = styled.div`
@@ -42,14 +42,14 @@ const Layout: React.FC = ({ children }) => {
       <header>
         <div className="container">
           <Wrapper>
-            <LinkButton>4NZI</LinkButton>
+            <Button>4NZI</Button>
             <nav>
               <ul>
                 <li>
-                  <LinkButton href="/#About">about</LinkButton>
+                  <ScroolButton text="about" />
                 </li>
                 <li>
-                  <LinkButton href="/#Hello">hello</LinkButton>
+                  <ScroolButton text="hello" />
                 </li>
               </ul>
             </nav>

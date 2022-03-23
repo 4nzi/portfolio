@@ -11,12 +11,12 @@ const Wrapper = styled.h2`
 `
 /* ------------------------------------------------- */
 interface PROPS {
-  margin: boolean
   title: string
 }
 
 const Section: React.VFC<PROPS> = ({ title }) => {
-  return <Wrapper id={title}>{title}</Wrapper>
+  const ConvertToLowerCase = title.toLowerCase()
+  return <Wrapper id={ConvertToLowerCase} >{title}</Wrapper>
 }
 
 export default Section
