@@ -11,10 +11,10 @@ const App: React.VFC = () => {
       <Layout>
         <PostList />
         <Spacer size={90} />
-        <Section title="About" margin={true} />
+        <Section title="About" />
         <About />
         <Spacer size={90} />
-        <Section title="Hello" margin={true} />
+        <Section title="Hello" />
         <Hello />
       </Layout>
     </>
